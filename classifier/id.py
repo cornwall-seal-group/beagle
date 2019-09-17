@@ -27,7 +27,14 @@ def find_seal(image_path, angle):
         results = predictor.classify_image(
             project_id, iteration_name, image_contents.read())
 
-    return results
+    image_predictions = {}
+
+    for prediction in results.predictions:
+        image_predictions[prediction.tag_name] = prediction.probability
+        print ("\t" + prediction.tag_name +
+               ": {0:.2f}%".format(prediction.probability * 100))
+
+    return image_predictions
 
 
 def id_seal(image_path, angle):
