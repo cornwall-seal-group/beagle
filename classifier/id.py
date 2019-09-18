@@ -11,9 +11,9 @@ def find_seal(image_path, angle):
     predictor = CustomVisionPredictionClient(prediction_key, endpoint=endpoint)
 
     project_id = None
-    if angle == 'head-right':
+    if angle == 'wet-head-right':
         project_id = config.HEAD_RIGHT
-    if angle == 'head-left':
+    if angle == 'wet-head-left':
         project_id = config.HEAD_LEFT
     if angle == 'bottling-left':
         project_id = config.BOTTLING_LEFT
