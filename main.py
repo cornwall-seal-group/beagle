@@ -36,10 +36,10 @@ def guess_seal_in_image():
 
         file = request.files['file']
 
-        if request.angle == '':
+        angle = request.form.get('angle', '')
+        if angle == '':
             return "The angle is empty, please supply an angle"
 
-        angle = request.angle
         if file and allowed_file(file.filename):
 
             epoch_time = int(time.time())
