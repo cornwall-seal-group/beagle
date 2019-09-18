@@ -56,8 +56,8 @@ def guess_seal_in_image():
             ids = id_seal(image_path, angle)
 
     return {
-        image: filename
-        matches: ids
+        "image": filename,
+        "matches": ids
     }
 
 
