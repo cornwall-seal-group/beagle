@@ -4,6 +4,7 @@ import os
 import time
 import config
 from classifier.id import id_seal
+from classifier.tags import get_tags_for_project
 from werkzeug.utils import secure_filename
 import shutil
 
@@ -19,6 +20,11 @@ ALLOWED_EXTENSIONS = set(['jpg', 'jpeg', 'png'])
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+
+@app.route('/tags/<angle>')
+def get_tags(angle):
+    return get_tags_for_project(angle)
 
 
 @app.route('/guess-image', methods=['POST'])
